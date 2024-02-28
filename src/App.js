@@ -6,7 +6,8 @@ import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
 import MuiDialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/icons/Close";
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import PersonIcon from '@material-ui/icons/Person';
 import Typography from "@material-ui/core/Typography";
 
 const styles = (theme) => ({
@@ -14,7 +15,7 @@ const styles = (theme) => ({
     margin: 0,
     padding: theme.spacing(3),
   },
-  closeButton: {
+  moreButton: {
     position: "absolute",
     right: theme.spacing(2),
     top: theme.spacing(2),
@@ -30,10 +31,10 @@ const DialogTitle = withStyles(styles)((props) => {
       {onClose ? (
         <IconButton
           aria-label="close"
-          className={classes.closeButton}
+          className={classes.moreButton}
           onClick={onClose}
         >
-          <CloseIcon />
+          <MoreVertIcon />
         </IconButton>
       ) : null}
     </MuiDialogTitle>
@@ -53,12 +54,6 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-// const Avatar = withStyles((theme) => ({
-//   root: {
-//     padding: theme.spacing(2),
-//   },
-// }))();
-
 export default function CustomizedDialogs() {
   const [open, setOpen] = React.useState(false);
 
@@ -71,8 +66,8 @@ export default function CustomizedDialogs() {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Solicitar edição do documento
+      <Button variant="contained" color="primary" onClick={handleClickOpen}>
+        Solicitar edição (cabeçograma)
       </Button>
       <Dialog
         onClose={handleClose}
@@ -83,10 +78,10 @@ export default function CustomizedDialogs() {
           Solicitando edição
         </DialogTitle>
         <DialogContent dividers>
-          <Typography gutterBottom>
-            {/* <div>
-              <img src="avatar.jpg"></img>
-            </div> */}
+          <Typography>
+            <IconButton>
+              <PersonIcon />
+            </IconButton>
             <strong>(nome do solicitante)</strong>, você está solicitando a
             edição para <strong>(nome do editor)</strong>
             <strong>(email do editor)</strong>. Pode levar algum tempo até sua
