@@ -26,23 +26,21 @@ const styles = (theme) => ({
 });
 
 const DialogTitle = withStyles(styles)((props) => {
-  const { children, classes, onClose, ...other } = props;
+  const { children, classes, ...other } = props;
   //const [showButton, setShowButton] = useState(false);
 
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
       <Typography variant="h6">{children}</Typography>
-      {onClose ? (
-        <>
-          <IconButton
-            aria-label="close"
-            className={classes.moreButton}
-            onClick={onClose}
-          >
-            <MoreVertIcon />
-          </IconButton>
-        </>
-      ) : null}
+      <>
+        <IconButton
+          aria-haspopup="menu"
+          className={classes.moreButton}
+          //onClick={}
+        >
+          <MoreVertIcon />
+        </IconButton>
+      </>
       {/* {showButton && (
         <Button variant="outlined" color="default">
           Forçar edição
@@ -92,6 +90,10 @@ export default function CustomizedDialogs() {
     // ver como funciona no Multicontent
   };
 
+  const handleCloseModal = () => {
+    setOpen(false);
+  }
+
   return (
     <div>
       <Button variant="contained" color="primary" onClick={handleClickOpen}>
@@ -116,7 +118,7 @@ export default function CustomizedDialogs() {
             solicitação ser aceita.
           </Typography>
           <DialogActions>
-            <Button variant="outlined" onClick={handleClose} color="default">
+            <Button variant="outlined" onClick={handleCloseModal} color="default">
               Cancelar
             </Button>
             <Button
@@ -131,7 +133,7 @@ export default function CustomizedDialogs() {
       </Dialog>
       <Snackbar
         open={snackbarOpen}
-        autoHideDuration={4000}
+        autoHideDuration={3000}
         onClose={handleSnackbarClose}
       >
         <Alert onClose={handleSnackbarClose} severity="info">
