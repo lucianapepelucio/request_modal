@@ -6,6 +6,7 @@ import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
 import MuiDialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
+import Menu from "@material-ui/core/Menu";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import PersonIcon from '@material-ui/icons/Person';
 import Typography from "@material-ui/core/Typography";
@@ -27,25 +28,61 @@ const styles = (theme) => ({
 
 const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, ...other } = props;
-  //const [showButton, setShowButton] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [secondModalOpen, setSecondModalOpen] = useState(false);
+
+  const handleMenuClick = (e) => {
+    setMenuOpen(true);
+  }
+
+  const handleMenuItemClick = () => {
+    setMenuOpen(false);
+    setSecondModalOpen(true);
+  }
+
+  const handleSecondModalClose = () => {
+    setSecondModalOpen(false);
+  }
 
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
       <Typography variant="h6">{children}</Typography>
       <>
         <IconButton
-          aria-haspopup="menu"
+          id="menubutton"
+          aria-haspopup="true"
+          aria-controls="menu"
           className={classes.moreButton}
-          //onClick={}
+          onClick={handleMenuClick}
         >
           <MoreVertIcon />
         </IconButton>
+        <Menu 
+          id="menu"
+          anchorEl={document.getElementById("menubutton")}
+          open={menuOpen}
+          onClose={() => setMenuOpen(false)}
+          MenuListProps={{
+            'aria-labelledby': 'menubutton',
+          }}
+        >
+          <button onClick={handleMenuItemClick}> Forçar edição </button>
+        </Menu>
       </>
-      {/* {showButton && (
-        <Button variant="outlined" color="default">
-          Forçar edição
-        </Button>
-      )} */}
+      
+      <Dialog open={secondModalOpen} onClose={handleSecondModalClose}>
+          <DialogTitle>Forçar edição</DialogTitle>
+          <DialogContent>
+            <p><strong>Atenção!</strong></p>
+            <p>É recomendado solicitar a edição da matéria e aguardar.</p>
+            <p>Somente force a edição em <strong>situações necessárias.</strong></p>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleSecondModalClose} color="default">
+              Voltar
+            </Button>
+          </DialogActions>
+      </Dialog>
     </MuiDialogTitle>
   );
 });
