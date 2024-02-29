@@ -31,7 +31,7 @@ const DialogTitle = withStyles(styles)((props) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [secondModalOpen, setSecondModalOpen] = useState(false);
 
-  const handleMenuClick = (e) => {
+  const handleMenuClick = () => {
     setMenuOpen(true);
   }
 
@@ -78,7 +78,7 @@ const DialogTitle = withStyles(styles)((props) => {
             <p>Somente force a edição em <strong>situações necessárias.</strong></p>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleSecondModalClose} color="default">
+            <Button variant="outlined" onClick={handleSecondModalClose} color="default">
               Voltar
             </Button>
           </DialogActions>
