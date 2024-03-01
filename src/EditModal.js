@@ -38,9 +38,9 @@ export default function EditContent() {
             <IconButton>
               <PersonIcon />
             </IconButton>
-            <strong>(nome do solicitante)</strong>, você está solicitando a
+            <strong>(Nome do solicitante)</strong>, você está solicitando a
             edição para <strong>(nome do editor)</strong>
-            <strong>(email do editor)</strong>. Pode levar algum tempo até sua
+            <strong>((email do editor))</strong>. Pode levar algum tempo até sua
             solicitação ser aceita.
           </Typography>
           <DialogActions>
@@ -55,9 +55,7 @@ export default function EditContent() {
               Solicitar edição
             </Button>
           </DialogActions>
-        </DialogContent>
-
-      
+        </DialogContent>  
     </div>
   );
 }

@@ -7,9 +7,9 @@ import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Typography from "@material-ui/core/Typography";
-import Snackbar from "@material-ui/core/Snackbar";
-import MuiAlert from "@material-ui/lab/Alert";
-import EditModal from "./EditModal";
+// import Snackbar from "@material-ui/core/Snackbar";
+// import MuiAlert from "@material-ui/lab/Alert";
+import EditContent from "./EditModal";
 import ForceContent from "./ForceEditModal";
 
 const styles = (theme) => ({
@@ -62,15 +62,14 @@ const DialogTitle = withStyles(styles)((props) => {
   );
 });
 
-function Alert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+// function Alert(props) {
+//   return <MuiAlert elevation={6} variant="filled" {...props} />;
+// }
 
 export default function CustomizedDialogs() {
   const [open, setOpen] = useState(false);
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-
   const [isForcing, setIsForcing] = useState(false);
+  //const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -80,24 +79,9 @@ export default function CustomizedDialogs() {
     setOpen(false);
   };
 
-  const handleSnackbarClose = () => {
-    setSnackbarOpen(false);
-  };
-
-  const handleRequestEdit = () => {
-    setSnackbarOpen(true);
-    setOpen(false);
-    // adicionar a lógica para solicitar a edição
-    // ver como funciona no Multicontent
-  };
-
-  const handleCloseModal = () => {
-    setOpen(false);
-  }
-
-  const handleClickModalOpen = () => {
-    setOpen(false);
-  }
+  // const handleSnackbarClose = () => {
+  //   setSnackbarOpen(false);
+  // };
 
   return (
     <div>
@@ -113,15 +97,14 @@ export default function CustomizedDialogs() {
           onStartForce= {() => setIsForcing(true)}
           id="customized-dialog-title" 
           onClose={handleClose} 
-          handleClickModalOpen={handleClickModalOpen}
+          handleClickOpen={handleClickOpen}
         >
-          Solicitando edição 
+          Solicitando/Forçar edição 
         </DialogTitle>
-        {isForcing 
-          ? <ForceContent /> 
-          : <EditModal />}
+        {isForcing ? <ForceContent /> : <EditContent />}
       </Dialog>
-      <Snackbar
+
+      {/* <Snackbar
         open={snackbarOpen}
         autoHideDuration={3000}
         onClose={handleSnackbarClose}
@@ -129,7 +112,8 @@ export default function CustomizedDialogs() {
         <Alert onClose={handleSnackbarClose} severity="info">
           Solicitação de edição enviada. Aguarde a resposta!
         </Alert>
-      </Snackbar>
+      </Snackbar> */}
+
     </div>
   );
 }

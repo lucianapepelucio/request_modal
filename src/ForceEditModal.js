@@ -22,9 +22,8 @@ const DialogActions = withStyles((theme) => ({
 
 export default function ForceContent() {
  
-  const handleRequestEdit = () => {
-    // adicionar a lógica para solicitar a edição
-    // ver como funciona no Multicontent
+  const handleForceEdit = () => {
+    // adicionar a lógica para forçar a edição
   };
 
   const handleCloseModal = () => {
@@ -38,26 +37,23 @@ export default function ForceContent() {
             <IconButton>
               <PersonIcon />
             </IconButton>
-            <strong>Modal de Forçar edição</strong>, você está solicitando a
-            edição para <strong>(nome do editor)</strong>
-            <strong>(email do editor)</strong>. Pode levar algum tempo até sua
-            solicitação ser aceita.
+            <p><strong>Atenção!</strong></p>
+            <p>É recomendado solicitar a edição da matéria e aguardar.</p>
+            <p>Somente force a edição em <strong>situações necessárias.</strong></p>
           </Typography>
           <DialogActions>
             <Button variant="outlined" onClick={handleCloseModal} color="default">
-              Cancelar
+              Voltar
             </Button>
             <Button
               variant="contained"
-              color="primary"
-              onClick={handleRequestEdit}
+              color="secondary"
+              onClick={handleForceEdit}
             >
-              Solicitar edição
+              Forçar edição
             </Button>
           </DialogActions>
         </DialogContent>
-
-      
     </div>
   );
 }
