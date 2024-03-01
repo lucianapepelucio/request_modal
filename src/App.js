@@ -12,6 +12,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import Typography from "@material-ui/core/Typography";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
+import ForceEditModal from "./ForceEditModal";
 
 const styles = (theme) => ({
   root: {
@@ -29,19 +30,9 @@ const styles = (theme) => ({
 const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, ...other } = props;
   const [menuOpen, setMenuOpen] = useState(false);
-  const [secondModalOpen, setSecondModalOpen] = useState(false);
 
   const handleMenuClick = () => {
     setMenuOpen(true);
-  }
-
-  const handleMenuItemClick = () => {
-    setMenuOpen(false);
-    setSecondModalOpen(true);
-  }
-
-  const handleSecondModalClose = () => {
-    setSecondModalOpen(false);
   }
 
   return (
@@ -66,23 +57,12 @@ const DialogTitle = withStyles(styles)((props) => {
             'aria-labelledby': 'menubutton',
           }}
         >
-          <button onClick={handleMenuItemClick}> Forçar edição </button>
+          <button onClick={props.handleMenuItemClick}> Forçar edição </button>
         </Menu>
       </>
       
-      <Dialog open={secondModalOpen} onClose={handleSecondModalClose}>
-          <DialogTitle>Forçar edição</DialogTitle>
-          <DialogContent>
-            <p><strong>Atenção!</strong></p>
-            <p>É recomendado solicitar a edição da matéria e aguardar.</p>
-            <p>Somente force a edição em <strong>situações necessárias.</strong></p>
-          </DialogContent>
-          <DialogActions>
-            <Button variant="outlined" onClick={handleSecondModalClose} color="default">
-              Voltar
-            </Button>
-          </DialogActions>
-      </Dialog>
+      <ForceEditModal {...props} />
+
     </MuiDialogTitle>
   );
 });
@@ -105,7 +85,7 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 export default function CustomizedDialogs() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -131,6 +111,11 @@ export default function CustomizedDialogs() {
     setOpen(false);
   }
 
+  const handleMenuItemClick = () => {
+    setOpen(false);
+    // setMenuOpen(false);
+  }
+
   return (
     <div>
       <Button variant="contained" color="primary" onClick={handleClickOpen}>
@@ -141,7 +126,11 @@ export default function CustomizedDialogs() {
         aria-labelledby="customized-dialog-title"
         open={open}
       >
-        <DialogTitle id="customized-dialog-title" onClose={handleClose} >
+        <DialogTitle 
+          id="customized-dialog-title" 
+          onClose={handleClose} 
+          handleMenuItemClick={handleMenuItemClick}
+        >
           Solicitando edição 
         </DialogTitle>
         <DialogContent dividers>
@@ -180,3 +169,6 @@ export default function CustomizedDialogs() {
     </div>
   );
 }
+
+
+
