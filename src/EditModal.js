@@ -20,7 +20,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function ForceContent() {
+export default function EditContent() {
  
   const handleRequestEdit = () => {
     // adicionar a lógica para solicitar a edição
@@ -38,7 +38,7 @@ export default function ForceContent() {
             <IconButton>
               <PersonIcon />
             </IconButton>
-            <strong>Modal de Forçar edição</strong>, você está solicitando a
+            <strong>(nome do solicitante)</strong>, você está solicitando a
             edição para <strong>(nome do editor)</strong>
             <strong>(email do editor)</strong>. Pode levar algum tempo até sua
             solicitação ser aceita.
