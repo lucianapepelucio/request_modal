@@ -57,15 +57,14 @@ const DialogTitle = withStyles(styles)((props) => {
             'aria-labelledby': 'menubutton',
           }}
         >
-          <button onClick={props.handleMenuItemClick}> Forçar edição </button>
+          <button onClick={handleClickModalOpen}> Forçar edição </button>
         </Menu>
       </>
-      
-      <ForceEditModal {...props} />
-
     </MuiDialogTitle>
   );
 });
+
+<ForceEditModal handleClickModalOpen={handleClickModalOpen}/>
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -111,9 +110,8 @@ export default function CustomizedDialogs() {
     setOpen(false);
   }
 
-  const handleMenuItemClick = () => {
+  const handleClickModalOpen = () => {
     setOpen(false);
-    // setMenuOpen(false);
   }
 
   return (
@@ -129,7 +127,7 @@ export default function CustomizedDialogs() {
         <DialogTitle 
           id="customized-dialog-title" 
           onClose={handleClose} 
-          handleMenuItemClick={handleMenuItemClick}
+          handleClickModalOpen={handleClickModalOpen}
         >
           Solicitando edição 
         </DialogTitle>
