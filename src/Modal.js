@@ -7,6 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Typography from "@material-ui/core/Typography";
+import Divider from '@material-ui/core/Divider';
 // import Snackbar from "@material-ui/core/Snackbar";
 // import MuiAlert from "@material-ui/lab/Alert";
 import EditContent from "./EditModal";
@@ -26,7 +27,7 @@ const styles = (theme) => ({
 });
 
 const DialogTitle = withStyles(styles)((props) => {
-  const { children, classes, onStartForce, ...other } = props;
+  const { children, classes, isForcing, onStartForce, ...other } = props;
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleMenuClick = () => {
@@ -36,28 +37,30 @@ const DialogTitle = withStyles(styles)((props) => {
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
       <Typography variant="h6">{children}</Typography>
-      <>
-        <IconButton
-          id="menubutton"
-          aria-haspopup="true"
-          aria-controls="menu"
-          className={classes.moreButton}
-          onClick={handleMenuClick}
-        >
-          <MoreVertIcon />
-        </IconButton>
-        <Menu 
-          id="menu"
-          anchorEl={document.getElementById("menubutton")}
-          open={menuOpen}
-          onClose={() => setMenuOpen(false)}
-          MenuListProps={{
-            'aria-labelledby': 'menubutton',
-          }}
-        >
-          <button onClick={onStartForce}> Forçar edição </button>
-        </Menu>
-      </>
+        {!isForcing && (
+          <>
+            <IconButton
+            id="menubutton"
+            aria-haspopup="true"
+            aria-controls="menu"
+            className={classes.moreButton}
+            onClick={handleMenuClick}
+            >
+              <MoreVertIcon />
+            </IconButton>
+            <Menu 
+              id="menu"
+              anchorEl={document.getElementById("menubutton")}
+              open={menuOpen}
+              onClose={() => setMenuOpen(false)}
+              MenuListProps={{
+                'aria-labelledby': 'menubutton',
+              }}
+            >
+              <button onClick={onStartForce}> Forçar edição </button>
+            </Menu>
+          </>
+        )}
     </MuiDialogTitle>
   );
 });
@@ -95,12 +98,12 @@ export default function CustomizedDialogs() {
       >
         <DialogTitle 
           onStartForce= {() => setIsForcing(true)}
+          isForcing={isForcing}
           id="customized-dialog-title" 
-          onClose={handleClose} 
-          handleClickOpen={handleClickOpen}
         >
-          Solicitando/Forçar edição 
+          {isForcing ? "Forçar edição" : "Solicitando edição"}
         </DialogTitle>
+        <Divider />
         {isForcing ? <ForceContent /> : <EditContent />}
       </Dialog>
 

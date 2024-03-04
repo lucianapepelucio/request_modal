@@ -26,34 +26,33 @@ export default function ForceContent() {
     // adicionar a lógica para forçar a edição
   };
 
-  const handleCloseModal = () => {
+  const handleCloseForceEditModal = () => {
   
   }
 
   return (
     <div>
-        <DialogContent dividers>
-          <Typography>
-            <IconButton>
-              <PersonIcon />
-            </IconButton>
-            <p><strong>Atenção!</strong></p>
-            <p>É recomendado solicitar a edição da matéria e aguardar.</p>
-            <p>Somente force a edição em <strong>situações necessárias.</strong></p>
-          </Typography>
-          <DialogActions>
-            <Button variant="outlined" onClick={handleCloseModal} color="default">
-              Voltar
-            </Button>
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={handleForceEdit}
-            >
-              Forçar edição
-            </Button>
-          </DialogActions>
-        </DialogContent>
+      <DialogContent>
+        <Typography>
+          <IconButton>
+            <PersonIcon />
+          </IconButton>
+          <p><strong>Atenção!</strong></p>
+          <p>É recomendado solicitar a edição da matéria e aguardar. Somente force a edição em <strong>situações necessárias.</strong></p>
+        </Typography>
+      </DialogContent>
+      <DialogActions>
+        <Button variant="outlined" onClick={handleCloseForceEditModal} color="default">
+          Cancelar
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={handleForceEdit}
+        >
+          Forçar edição
+        </Button>
+      </DialogActions>
     </div>
   );
 }

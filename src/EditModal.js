@@ -27,35 +27,35 @@ export default function EditContent() {
     // ver como funciona no Multicontent
   };
 
-  const handleCloseModal = () => {
+  const handleCloseEditModal = () => {
   
   }
 
   return (
     <div>
-        <DialogContent dividers>
-          <Typography>
-            <IconButton>
-              <PersonIcon />
-            </IconButton>
-            <strong>(Nome do solicitante)</strong>, você está solicitando a
-            edição para <strong>(nome do editor)</strong>
-            <strong>((email do editor))</strong>. Pode levar algum tempo até sua
-            solicitação ser aceita.
-          </Typography>
-          <DialogActions>
-            <Button variant="outlined" onClick={handleCloseModal} color="default">
-              Cancelar
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleRequestEdit}
-            >
-              Solicitar edição
-            </Button>
-          </DialogActions>
-        </DialogContent>  
+      <DialogContent>
+        <Typography>
+          <IconButton>
+            <PersonIcon />
+          </IconButton>
+          <strong>(Nome do solicitante)</strong>, você está solicitando a
+          edição para <strong>(nome do editor)</strong>
+          <strong>((email do editor))</strong>. Pode levar algum tempo até sua
+          solicitação ser aceita.
+        </Typography>
+      </DialogContent>
+      <DialogActions>
+        <Button variant="outlined" onClick={handleCloseEditModal} color="default">
+          Cancelar
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleRequestEdit}
+        >
+          Solicitar edição
+        </Button>
+      </DialogActions>  
     </div>
   );
 }
