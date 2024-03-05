@@ -4,8 +4,8 @@ import Button from "@material-ui/core/Button";
 import MuiDialogContent from "@material-ui/core/DialogContent";
 import MuiDialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
-import PersonIcon from '@material-ui/icons/Person';
 import Typography from "@material-ui/core/Typography";
+import PersonIcon from "@material-ui/icons/Person";
 
 const DialogContent = withStyles((theme) => ({
   root: {
@@ -20,7 +20,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function EditContent() {
+export default function EditContent({ onClose }) {
  
   const handleRequestEdit = () => {
     // adicionar a lógica para solicitar a edição
@@ -28,7 +28,7 @@ export default function EditContent() {
   };
 
   const handleCloseEditModal = () => {
-  
+    onClose();
   }
 
   return (

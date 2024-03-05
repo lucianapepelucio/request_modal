@@ -1,17 +1,17 @@
 import React, { useState } from "react";
+import EditContent from "./EditModal";
+import ForceContent from "./ForceEditModal";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Typography from "@material-ui/core/Typography";
-import Divider from '@material-ui/core/Divider';
+import Divider from "@material-ui/core/Divider";
 // import Snackbar from "@material-ui/core/Snackbar";
 // import MuiAlert from "@material-ui/lab/Alert";
-import EditContent from "./EditModal";
-import ForceContent from "./ForceEditModal";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const styles = (theme) => ({
   root: {
@@ -104,7 +104,7 @@ export default function CustomizedDialogs() {
           {isForcing ? "Forçar edição" : "Solicitando edição"}
         </DialogTitle>
         <Divider />
-        {isForcing ? <ForceContent /> : <EditContent />}
+        {isForcing ? <ForceContent onClose={handleClose}/> : <EditContent onClose={handleClose}/>}
       </Dialog>
 
       {/* <Snackbar
