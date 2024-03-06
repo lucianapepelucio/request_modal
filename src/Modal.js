@@ -14,7 +14,11 @@ import Divider from "@material-ui/core/Divider";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const styles = (theme) => ({
-  root: {
+  dialog: {
+    margin: 0,
+    padding: theme.spacing(3),
+  },
+  dialogTitle: {
     margin: 0,
     padding: theme.spacing(3),
   },
@@ -35,7 +39,7 @@ const DialogTitle = withStyles(styles)((props) => {
   }
 
   return (
-    <MuiDialogTitle disableTypography className={classes.root} {...other}>
+    <MuiDialogTitle disableTypography className={classes.dialogTitle} {...other}>
       <Typography variant="h6">{children}</Typography>
         {!isForcing && (
           <>
@@ -69,7 +73,7 @@ const DialogTitle = withStyles(styles)((props) => {
 //   return <MuiAlert elevation={6} variant="filled" {...props} />;
 // }
 
-export default function CustomizedDialogs() {
+const CustomizedDialogs = withStyles(styles)(({ classes }) => {
   const [open, setOpen] = useState(false);
   const [isForcing, setIsForcing] = useState(false);
   //const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -95,6 +99,7 @@ export default function CustomizedDialogs() {
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
+        className={classes.dialog}
       >
         <DialogTitle 
           onStartForce= {() => setIsForcing(true)}
@@ -119,7 +124,10 @@ export default function CustomizedDialogs() {
 
     </div>
   );
-}
+}); 
+
+export default CustomizedDialogs;
+
 
 
 
