@@ -15,18 +15,39 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const styles = (theme) => ({
   dialog: {
-    margin: 0,
-    padding: theme.spacing(3),
+    //width: 560,
+    border: 1,
+    borderRadius: 6,
   },
   dialogTitle: {
-    margin: 0,
-    padding: theme.spacing(3),
+    position: "relative",
+    //width: 560,
+    fontSize: 28,
+    justify: "space-between",
+    padding: 24,
+    fontWeight: "bold",
   },
   moreButton: {
     position: "absolute",
     right: theme.spacing(2),
     top: theme.spacing(2),
     color: theme.palette.grey[500],
+  },
+  list: {
+    listStyleType: "none",
+    padding: 0,
+    height: 36,
+    width: 107,
+  },
+  forceButton: {
+    width: 107,
+    height: 36,
+    borderRadius: 4,
+    border: "1px solid rgba(0, 0, 0, 0.23)",
+    variant: "outlined",
+    color: "default",
+    padding: 0,
+    backgroundColor: "transparent",
   },
 });
 
@@ -61,7 +82,11 @@ const DialogTitle = withStyles(styles)((props) => {
                 'aria-labelledby': 'menubutton',
               }}
             >
-              <button onClick={onStartForce}> Forçar edição </button>
+              <ul className={classes.list}>
+                <li>
+                  <button onClick={onStartForce} className={classes.forceButton}> Forçar edição </button>
+                </li>
+              </ul>
             </Menu>
           </>
         )}
