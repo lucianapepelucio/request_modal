@@ -15,39 +15,56 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const styles = (theme) => ({
   dialog: {
-    //width: 560,
-    border: 1,
+    // width: 560,
+    // height: 296,
+    top: 390,
+    left: 440,
     borderRadius: 6,
+    border: 1,
   },
   dialogTitle: {
     position: "relative",
     //width: 560,
-    fontSize: 28,
     justify: "space-between",
     padding: 24,
-    fontWeight: "bold",
   },
+  titleText: {
+    width: 166,
+    height: 28,
+    fontWeight: "bold",
+    fontSize: 20,
+    color: "#212121",
+    lineHeight: "28px",
+},
   moreButton: {
     position: "absolute",
     right: theme.spacing(2),
     top: theme.spacing(2),
     color: theme.palette.grey[500],
+    // width: 25.2,
+    // height: 24,
+    // top: 414,
+    // left: 951,
   },
   list: {
     listStyleType: "none",
-    padding: 0,
-    height: 36,
-    width: 107,
+    padding: 0, // porque não funciona Jesus?
   },
   forceButton: {
-    width: 107,
-    height: 36,
+    width: 131.21,
+    height: 48,
+    top: 443,
+    left: 841,
     borderRadius: 4,
-    border: "1px solid rgba(0, 0, 0, 0.23)",
-    variant: "outlined",
-    color: "default",
+    border: 0,
     padding: 0,
     backgroundColor: "transparent",
+    variant: "outlined",
+    color: "default",
+    fontSize: 16,
+    fontWeight: "bold",
+    lineHeight: "24px",
+    letterSpacing: 0.15,
   },
 });
 
@@ -84,7 +101,9 @@ const DialogTitle = withStyles(styles)((props) => {
             >
               <ul className={classes.list}>
                 <li>
-                  <button onClick={onStartForce} className={classes.forceButton}> Forçar edição </button>
+                  <button onClick={onStartForce} className={classes.forceButton}>
+                     Forçar edição
+                  </button>
                 </li>
               </ul>
             </Menu>
@@ -131,7 +150,10 @@ const CustomizedDialogs = withStyles(styles)(({ classes }) => {
           isForcing={isForcing}
           id="customized-dialog-title" 
         >
-          {isForcing ? "Forçar edição" : "Solicitando edição"}
+          {isForcing 
+            ? <span className={classes.titleText}>Forçar edição</span> 
+            : <span className={classes.titleText}>Solicitando edição</span>
+          }
         </DialogTitle>
         <Divider />
         {isForcing ? <ForceContent onClose={handleClose}/> : <EditContent onClose={handleClose}/>}
