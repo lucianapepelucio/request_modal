@@ -1,26 +1,23 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import MuiDialogContent from "@material-ui/core/DialogContent";
-import MuiDialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import PersonIcon from "@material-ui/icons/Person";
 
-const DialogContent = withStyles((theme) => ({
+const styles = (theme) => ({
   forceContent: {
     padding: theme.spacing(2),
   },
-}))(MuiDialogContent);
-
-const DialogActions = withStyles((theme) => ({
   forceActions: {
     margin: 0,
     padding: theme.spacing(2),
   },
-}))(MuiDialogActions);
+});
 
-export default function ForceContent({ onClose }) {
+const ForceContent = withStyles(styles)(({ onClose, classes }) => {
  
   const handleForceEdit = () => {
     // adicionar a lógica para forçar a edição
@@ -32,7 +29,7 @@ export default function ForceContent({ onClose }) {
 
   return (
     <div>
-      <DialogContent>
+      <DialogContent className={classes.forceContent}>
         <Typography>
           <IconButton>
             <PersonIcon />
@@ -41,7 +38,7 @@ export default function ForceContent({ onClose }) {
           <p>É recomendado solicitar a edição da matéria e aguardar. Somente force a edição em <strong>situações necessárias.</strong></p>
         </Typography>
       </DialogContent>
-      <DialogActions>
+      <DialogActions className={classes.forceActions}>
         <Button variant="outlined" onClick={handleCloseForceEditModal} color="default">
           Cancelar
         </Button>
@@ -55,7 +52,7 @@ export default function ForceContent({ onClose }) {
       </DialogActions>
     </div>
   );
-}
+});
 
-
+export default ForceContent;
 
