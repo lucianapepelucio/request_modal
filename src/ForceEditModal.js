@@ -8,13 +8,13 @@ import Typography from "@material-ui/core/Typography";
 import PersonIcon from "@material-ui/icons/Person";
 
 const DialogContent = withStyles((theme) => ({
-  root: {
+  forceContent: {
     padding: theme.spacing(2),
   },
 }))(MuiDialogContent);
 
 const DialogActions = withStyles((theme) => ({
-  root: {
+  forceActions: {
     margin: 0,
     padding: theme.spacing(2),
   },

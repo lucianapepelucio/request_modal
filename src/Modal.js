@@ -16,7 +16,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 const styles = (theme) => ({
   dialog: {
     // width: 560,
-    // height: 296,
+    //height: 296,
     top: 390,
     left: 440,
     borderRadius: 6,
@@ -40,7 +40,7 @@ const styles = (theme) => ({
     position: "absolute",
     right: theme.spacing(2),
     top: theme.spacing(2),
-    color: theme.palette.grey[500],
+    color: theme.palette.grey[600],
     // width: 25.2,
     // height: 24,
     // top: 414,
@@ -48,7 +48,7 @@ const styles = (theme) => ({
   },
   list: {
     listStyleType: "none",
-    padding: 0, // porque não funciona Jesus?
+    padding: 0, // verificar porque aparece como padding: 8
   },
   forceButton: {
     width: 131.21,

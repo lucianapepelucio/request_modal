@@ -1,26 +1,23 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import MuiDialogContent from "@material-ui/core/DialogContent";
-import MuiDialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import PersonIcon from "@material-ui/icons/Person";
 
-const DialogContent = withStyles((theme) => ({
-  root: {
+const styles = (theme) => ({
+  editContent: {
     padding: theme.spacing(2),
   },
-}))(MuiDialogContent);
-
-const DialogActions = withStyles((theme) => ({
-  root: {
+  editActions: {
     margin: 0,
     padding: theme.spacing(2),
   },
-}))(MuiDialogActions);
+});
 
-export default function EditContent({ onClose }) {
+const EditContent = withStyles(styles)(({ onClose, classes }) => {
  
   const handleRequestEdit = () => {
     // adicionar a lógica para solicitar a edição
@@ -33,7 +30,7 @@ export default function EditContent({ onClose }) {
 
   return (
     <div>
-      <DialogContent>
+      <DialogContent className={classes.editContent}>
         <Typography>
           <IconButton>
             <PersonIcon />
@@ -44,7 +41,7 @@ export default function EditContent({ onClose }) {
           solicitação ser aceita.
         </Typography>
       </DialogContent>
-      <DialogActions>
+      <DialogActions className={classes.editActions}>
         <Button variant="outlined" onClick={handleCloseEditModal} color="default">
           Cancelar
         </Button>
@@ -58,7 +55,7 @@ export default function EditContent({ onClose }) {
       </DialogActions>  
     </div>
   );
-}
+});
 
-
+export default EditContent;
 
