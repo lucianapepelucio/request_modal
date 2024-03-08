@@ -15,17 +15,14 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const styles = (theme) => ({
   dialog: {
-    // width: 560,
-    //height: 296,
-    top: 390,
-    left: 440,
+    display: "flex",
+    width: 560,
     borderRadius: 6,
     border: 1,
   },
   dialogTitle: {
     position: "relative",
-    //width: 560,
-    justify: "space-between",
+    justifyContent: "space-between",
     padding: 24,
   },
   titleText: {
@@ -41,13 +38,11 @@ const styles = (theme) => ({
     right: theme.spacing(2),
     top: theme.spacing(2),
     color: theme.palette.grey[600],
-    // width: 25.2,
-    // height: 24,
-    // top: 414,
-    // left: 951,
   },
   list: {
     listStyleType: "none",
+    width: 131.21,
+    height: 48,
     padding: 0, // verificar porque aparece como padding: 8
   },
   forceButton: {
