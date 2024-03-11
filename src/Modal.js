@@ -15,10 +15,12 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const styles = (theme) => ({
   dialog: {
-    display: "flex",
-    width: 560,
+    //width: 560,
     borderRadius: 6,
     border: 1,
+    display: "flex",
+    width: "100%",
+    justifyContent: "center"
   },
   dialogTitle: {
     position: "relative",
