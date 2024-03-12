@@ -12,13 +12,23 @@ const styles = () => ({
   forceContent: {
     padding: "40px 24px",
     gap: 16,
-    direction: "row",
+    alignItens: "center",
+  },
+  avatar: {
+    width: "56px",
+    height: "56px",
+    float: "left",
+    background: "#bdbdbd",
+  },
+  forceText: {
+    fontWeight: 400,
+    fontSize: 16,
   },
   forceActions: {
     width: 544,  //544 + 16 + 16 = 560
     height: 36,  //36 + 16 + 16 = 68
-    padding: "16px 16px 16px 0px",
     gap: 14,  // 14 + marginLeft 8 = 22
+    padding: "16px 16px 16px 0px",
   },
   cancelButton: {
     width: 107,
@@ -56,14 +66,16 @@ const ForceContent = withStyles(styles)(({ onClose, classes }) => {
       <Grid item lg={12}>
         <DialogContent className={classes.forceContent}>
           <Typography>
-            <IconButton>
-              <PersonIcon />
-            </IconButton>
-            <div>
-              <strong>Atenção!</strong>
+            <Grid item className={classes.avatar}>
+              <IconButton>
+                <PersonIcon />
+              </IconButton>
+            </Grid>
+            <Grid item className={classes.forceText}>
+              <strong>Atenção! </strong>
               É recomendado solicitar a edição da matéria e aguardar. 
               Somente force a edição em <strong>situações necessárias.</strong>
-            </div>
+            </Grid>
           </Typography>
         </DialogContent>
       </Grid>

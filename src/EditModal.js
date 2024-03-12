@@ -12,16 +12,23 @@ const styles = () => ({
   editContent: {
     padding: "40px 24px",
     gap: 16,
-    direction: "row",
+    alignItens: "center",
   },
   avatar: {
-    //float: left,
+    width: "56px",
+    height: "56px",
+    float: "left",
+    background: "#bdbdbd",
+  },
+  editText: {
+    fontWeight: 400,
+    fontSize: 16,
   },
   editActions: {
     width: 544,  //544 + 16 + 16 = 560
     height: 36,  //36 + 16 + 16 = 68
-    padding: "16px 16px 16px 0px",
     gap: 14,  // 14 + marginLeft 8 = 22
+    padding: "16px 16px 16px 0px",
   },
   cancelButton: {
     width: 107,
@@ -60,15 +67,17 @@ const EditContent = withStyles(styles)(({ onClose, classes }) => {
       <Grid item lg={12}>
         <DialogContent className={classes.editContent}>
           <Typography>
-            <IconButton className={classes.avatar}>
-              <PersonIcon />
-            </IconButton>
-            <div>
+            <Grid item className={classes.avatar}>
+              <IconButton>
+                <PersonIcon />
+              </IconButton>
+            </Grid>
+            <Grid item className={classes.editText}>
               <strong>(Nome do solicitante)</strong>, você está solicitando a
               edição para <strong>(nome do editor)</strong>
-              <strong>((email do editor))</strong>. Pode levar algum tempo até sua
+              <i>((email do editor))</i>. Pode levar algum tempo até sua
               solicitação ser aceita.
-            </div>
+            </Grid>
           </Typography>
         </DialogContent>
       </Grid>

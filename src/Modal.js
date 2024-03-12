@@ -17,10 +17,11 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 const styles = (theme) => ({
   dialog: {
     display: "grid",
-    width: "100%",
+    gridTemplateColumns: "repeat(3, 1fr)",
     alignItems: "center",
     borderRadius: 6,
     border: 1,
+    //width: "100%",
   },
   dialogTitle: {
     position: "relative",
