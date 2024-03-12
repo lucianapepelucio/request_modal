@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import EditContent from "./EditModal";
 import ForceContent from "./ForceEditModal";
 import { withStyles } from "@material-ui/core/styles";
+import Grid from '@material-ui/core/Grid';
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
@@ -15,12 +16,11 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const styles = (theme) => ({
   dialog: {
-    //width: 560,
+    display: "grid",
+    width: "100%",
+    alignItems: "center",
     borderRadius: 6,
     border: 1,
-    display: "flex",
-    width: "100%",
-    justifyContent: "center"
   },
   dialogTitle: {
     position: "relative",
@@ -32,8 +32,8 @@ const styles = (theme) => ({
     height: 28,
     fontWeight: "bold",
     fontSize: 20,
-    color: "#212121",
     lineHeight: "28px",
+    color: "#212121",
 },
   moreButton: {
     position: "absolute",
@@ -42,16 +42,17 @@ const styles = (theme) => ({
     color: theme.palette.grey[600],
   },
   list: {
-    listStyleType: "none",
     width: 131.21,
     height: 48,
+    top: 443,
+    left: 841,
+    borderRadius: 4,
+    listStyleType: "none",
     padding: 0, // verificar porque aparece como padding: 8
   },
   forceButton: {
     width: 131.21,
     height: 48,
-    top: 443,
-    left: 841,
     borderRadius: 4,
     border: 0,
     padding: 0,
@@ -74,7 +75,8 @@ const DialogTitle = withStyles(styles)((props) => {
   }
 
   return (
-    <MuiDialogTitle disableTypography className={classes.dialogTitle} {...other}>
+    <Grid item lg={12}>
+      <MuiDialogTitle disableTypography className={classes.dialogTitle} {...other}>
       <Typography variant="h6">{children}</Typography>
         {!isForcing && (
           <>
@@ -106,7 +108,8 @@ const DialogTitle = withStyles(styles)((props) => {
             </Menu>
           </>
         )}
-    </MuiDialogTitle>
+      </MuiDialogTitle>
+    </Grid>
   );
 });
 
@@ -136,25 +139,33 @@ const CustomizedDialogs = withStyles(styles)(({ classes }) => {
       <Button variant="contained" color="primary" onClick={handleClickOpen}>
         Solicitar edição (cabeçograma)
       </Button>
-      <Dialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-        className={classes.dialog}
-      >
-        <DialogTitle 
-          onStartForce= {() => setIsForcing(true)}
-          isForcing={isForcing}
-          id="customized-dialog-title" 
+      <Grid container direction="column">
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          className={classes.dialog}
+          aria-labelledby="customized-dialog-title"
         >
-          {isForcing 
-            ? <span className={classes.titleText}>Forçar edição</span> 
-            : <span className={classes.titleText}>Solicitando edição</span>
-          }
-        </DialogTitle>
-        <Divider />
-        {isForcing ? <ForceContent onClose={handleClose}/> : <EditContent onClose={handleClose}/>}
-      </Dialog>
+          <Grid item lg={12}>
+            <DialogTitle 
+            onStartForce= {() => setIsForcing(true)}
+            isForcing={isForcing}
+            id="customized-dialog-title" 
+            >
+              {isForcing 
+                ? <span className={classes.titleText}>Forçar edição</span> 
+                : <span className={classes.titleText}>Solicitando edição</span>
+              }
+            </DialogTitle>
+          </Grid>
+          <Grid item lg={12}>
+            <Divider />
+          </Grid>
+          <Grid item lg={12}>
+            {isForcing ? <ForceContent onClose={handleClose}/> : <EditContent onClose={handleClose}/>}
+          </Grid>
+        </Dialog>
+      </Grid>
 
       {/* <Snackbar
         open={snackbarOpen}
