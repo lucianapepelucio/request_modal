@@ -21,7 +21,6 @@ const styles = (theme) => ({
     alignItems: "center",
     borderRadius: 6,
     border: 1,
-    //width: "100%",
   },
   dialogTitle: {
     position: "relative",
@@ -45,11 +44,9 @@ const styles = (theme) => ({
   list: {
     width: 131.21,
     height: 48,
-    top: 443,
-    left: 841,
     borderRadius: 4,
     listStyleType: "none",
-    padding: 0, // verificar porque aparece como padding: 8
+    padding: 0, 
   },
   forceButton: {
     width: 131.21,

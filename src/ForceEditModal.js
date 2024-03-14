@@ -10,33 +10,36 @@ import PersonIcon from "@material-ui/icons/Person";
 
 const styles = () => ({
   forceContent: {
-    padding: "40px 24px",
-    gap: 16,
+    display: "flex",
     alignItens: "center",
+    padding: "40px 24px",
   },
   avatar: {
     width: "56px",
     height: "56px",
     float: "left",
     background: "#bdbdbd",
+    marginRight: 16,
   },
   forceText: {
     fontWeight: 400,
     fontSize: 16,
+    width: 440,
+    height: 72,
   },
   forceActions: {
-    width: 544,  //544 + 16 + 16 = 560
-    height: 36,  //36 + 16 + 16 = 68
-    gap: 14,  // 14 + marginLeft 8 = 22
+    display: "flex",
+    alignItems: "flex-end",
+    width: 544,  
+    height: 36,  
+    gap: 14,  
     padding: "16px 16px 16px 0px",
   },
   cancelButton: {
     width: 107,
     height: 36,
     borderRadius: 4,
-    // border: 1,
-    // padding: "6px 16px",
-    // gap: 6,
+    fontWeight: "bold",
   },
   forceButton: {
     width: 160,
@@ -46,8 +49,7 @@ const styles = () => ({
     fontSize: 14,
     lineHeight: "24px",
     letterSpacing: 0.4,
-    //fontWeight: "bold",
-    // usar o button da admin lib por causa da cor
+    fontWeight: "bold",
   },
 });
 
@@ -63,41 +65,45 @@ const ForceContent = withStyles(styles)(({ onClose, classes }) => {
 
   return (
     <div>
-      <Grid item lg={12}>
-        <DialogContent className={classes.forceContent}>
-          <Typography>
-            <Grid item className={classes.avatar}>
+      <Grid container>
+        <Grid container direction="row" className={classes.forceContent}>
+          <DialogContent>
+            <Grid item lg={12} className={classes.avatar}>
               <IconButton>
                 <PersonIcon />
               </IconButton>
             </Grid>
-            <Grid item className={classes.forceText}>
-              <strong>Atenção! </strong>
-              É recomendado solicitar a edição da matéria e aguardar. 
-              Somente force a edição em <strong>situações necessárias.</strong>
-            </Grid>
-          </Typography>
-        </DialogContent>
-      </Grid>
-      <Grid item lg={12}>
-        <DialogActions className={classes.forceActions}>
-          <Button
-           variant="outlined" 
-           onClick={handleCloseForceEditModal} 
-           color="default"
-           className= {classes.cancelButton}
-          >
-            Cancelar
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={handleForceEdit}
-            className={classes.forceButton}
-          >
-            Forçar edição
-          </Button>
-        </DialogActions>
+            <Typography>
+              <Grid item lg={12}>
+                <div className={classes.forceText}>
+                  <strong>Atenção! </strong>
+                  É recomendado solicitar a edição da matéria e aguardar. 
+                  Somente force a edição em <strong>situações necessárias.</strong>
+                </div>
+              </Grid>
+            </Typography>
+          </DialogContent>
+        </Grid>
+        <Grid item lg={12}>
+          <DialogActions className={classes.forceActions}>
+            <Button
+            variant="outlined" 
+            onClick={handleCloseForceEditModal} 
+            color="default"
+            className= {classes.cancelButton}
+            >
+              Cancelar
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handleForceEdit}
+              className={classes.forceButton}
+              >
+              Forçar edição
+            </Button>
+          </DialogActions>
+        </Grid>
       </Grid>
     </div>
   );

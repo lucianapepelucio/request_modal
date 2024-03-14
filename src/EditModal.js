@@ -10,33 +10,36 @@ import PersonIcon from "@material-ui/icons/Person";
 
 const styles = () => ({
   editContent: {
+    display: "flex",
+    alignItems: "center",
     padding: "40px 24px",
-    gap: 16,
-    alignItens: "center",
   },
   avatar: {
     width: "56px",
     height: "56px",
     float: "left",
     background: "#bdbdbd",
+    marginRight: 16,
   },
   editText: {
     fontWeight: 400,
     fontSize: 16,
+    width: 440,
+    height: 72,
   },
   editActions: {
-    width: 544,  //544 + 16 + 16 = 560
-    height: 36,  //36 + 16 + 16 = 68
-    gap: 14,  // 14 + marginLeft 8 = 22
+    display: "flex",
+    alignItems: "flex-end",
+    width: 544,  
+    height: 36,  
+    gap: 14, 
     padding: "16px 16px 16px 0px",
   },
   cancelButton: {
     width: 107,
     height: 36,
     borderRadius: 4,
-    // border: 1,
-    // padding: "6px 16px",
-    // gap: 6,
+    fontWeight: "bold",
   },
   requestButton: {
     width: 160,
@@ -46,8 +49,7 @@ const styles = () => ({
     fontSize: 14,
     lineHeight: "24px",
     letterSpacing: 0.4,
-    //fontWeight: "bold",
-    // usar o button da admin lib por causa da cor
+    fontWeight: "bold",
   },
 });
 
@@ -64,42 +66,46 @@ const EditContent = withStyles(styles)(({ onClose, classes }) => {
 
   return (
     <div>
-      <Grid item lg={12}>
-        <DialogContent className={classes.editContent}>
-          <Typography>
-            <Grid item className={classes.avatar}>
+      <Grid container>
+        <Grid container direction="row" className={classes.editContent}>
+          <DialogContent>
+            <Grid item lg={12} className={classes.avatar}>
               <IconButton>
                 <PersonIcon />
               </IconButton>
             </Grid>
-            <Grid item className={classes.editText}>
-              <strong>(Nome do solicitante)</strong>, você está solicitando a
-              edição para <strong>(nome do editor)</strong>
-              <i>((email do editor))</i>. Pode levar algum tempo até sua
-              solicitação ser aceita.
-            </Grid>
-          </Typography>
-        </DialogContent>
-      </Grid>
-      <Grid item lg={12}>
-        <DialogActions className={classes.editActions}>
-          <Button
-          variant="outlined" 
-          color="default"
-          onClick={handleCloseEditModal} 
-          className= {classes.cancelButton} 
-          >
-            Cancelar
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleRequestEdit}
-            className={classes.requestButton}
-          >
-            Solicitar edição
-          </Button>
-        </DialogActions>  
+            <Typography>
+              <Grid item lg={12}>
+                <div className={classes.editText}>
+                  <strong>(Nome do solicitante)</strong>, você está solicitando a
+                  edição para <strong>(nome do editor)</strong>
+                  <i>((email do editor))</i>. Pode levar algum tempo até sua
+                  solicitação ser aceita.
+                </div>
+              </Grid>
+            </Typography>
+          </DialogContent>
+        </Grid>
+        <Grid item lg={12}>
+          <DialogActions className={classes.editActions}>
+            <Button
+            variant="outlined" 
+            color="default"
+            onClick={handleCloseEditModal} 
+            className= {classes.cancelButton} 
+            >
+              Cancelar
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleRequestEdit}
+              className={classes.requestButton}
+              >
+              Solicitar edição
+            </Button>
+          </DialogActions>  
+        </Grid>
       </Grid>
     </div>
   );
