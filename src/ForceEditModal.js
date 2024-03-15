@@ -21,45 +21,43 @@ const ForceContent = withStyles(styles)(({ onClose, classes }) => {
 
   return (
     <div>
-      <Grid container>
-        <Grid container direction="row" className={classes.containerContent}>
-          <DialogContent>
-            <Grid item lg={12} className={classes.avatar}>
-              <IconButton>
-                <PersonIcon />
-              </IconButton>
+      <Grid container direction="row" className={classes.containerContent}>
+        <DialogContent>
+          <Grid item lg={12} className={classes.avatar}>
+            <IconButton>
+              <PersonIcon />
+            </IconButton>
+          </Grid>
+          <Typography>
+            <Grid item lg={12}>
+              <div className={classes.contentText}>
+                <strong>Atenção! </strong>
+                É recomendado solicitar a edição da matéria e aguardar. 
+                Somente force a edição em <strong>situações necessárias.</strong>
+              </div>
             </Grid>
-            <Typography>
-              <Grid item lg={12}>
-                <div className={classes.contentText}>
-                  <strong>Atenção! </strong>
-                  É recomendado solicitar a edição da matéria e aguardar. 
-                  Somente force a edição em <strong>situações necessárias.</strong>
-                </div>
-              </Grid>
-            </Typography>
-          </DialogContent>
-        </Grid>
-        <Grid item lg={12}>
-          <DialogActions className={classes.containerActions}>
-            <Button
-            variant="outlined" 
-            onClick={handleCloseForceEditModal} 
-            color="default"
-            className= {classes.cancelButton}
+          </Typography>
+        </DialogContent>
+      </Grid>
+      <Grid container direction="row">
+        <DialogActions className={classes.containerActions}>
+          <Button
+          variant="outlined" 
+          onClick={handleCloseForceEditModal} 
+          color="default"
+          className= {classes.cancelButton}
+          >
+            Cancelar
+          </Button>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={handleForceEdit}
+            className={classes.principalButton}
             >
-              Cancelar
-            </Button>
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={handleForceEdit}
-              className={classes.principalButton}
-              >
-              Forçar edição
-            </Button>
-          </DialogActions>
-        </Grid>
+            Forçar edição
+          </Button>
+        </DialogActions>
       </Grid>
     </div>
   );

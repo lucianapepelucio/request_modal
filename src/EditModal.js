@@ -22,46 +22,44 @@ const EditContent = withStyles(styles)(({ onClose, classes }) => {
 
   return (
     <div>
-      <Grid container>
-        <Grid container direction="row" className={classes.containerContent}>
-          <DialogContent>
-            <Grid item lg={12} className={classes.avatar}>
-              <IconButton>
-                <PersonIcon />
-              </IconButton>
+      <Grid container direction="row" className={classes.containerContent}>
+        <DialogContent>
+          <Grid item lg={12} className={classes.avatar}>
+            <IconButton>
+              <PersonIcon />
+            </IconButton>
+          </Grid>
+          <Typography>
+            <Grid item lg={12}>
+              <div className={classes.contentText}>
+                <strong>(Nome do solicitante)</strong>, você está solicitando a
+                edição para <strong>(nome do editor)</strong>
+                <i>((email do editor))</i>. Pode levar algum tempo até sua
+                solicitação ser aceita.
+              </div>
             </Grid>
-            <Typography>
-              <Grid item lg={12}>
-                <div className={classes.contentText}>
-                  <strong>(Nome do solicitante)</strong>, você está solicitando a
-                  edição para <strong>(nome do editor)</strong>
-                  <i>((email do editor))</i>. Pode levar algum tempo até sua
-                  solicitação ser aceita.
-                </div>
-              </Grid>
-            </Typography>
-          </DialogContent>
-        </Grid>
-        <Grid item lg={12}>
-          <DialogActions className={classes.containerActions}>
-            <Button
-            variant="outlined" 
-            color="default"
-            onClick={handleCloseEditModal} 
-            className= {classes.cancelButton} 
+          </Typography>
+        </DialogContent>
+      </Grid>
+      <Grid container direction="row">
+        <DialogActions className={classes.containerActions}>
+          <Button
+          variant="outlined" 
+          color="default"
+          onClick={handleCloseEditModal} 
+          className= {classes.cancelButton} 
+          >
+            Cancelar
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleRequestEdit}
+            className={classes.principalButton}
             >
-              Cancelar
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleRequestEdit}
-              className={classes.principalButton}
-              >
-              Solicitar edição
-            </Button>
-          </DialogActions>  
-        </Grid>
+            Solicitar edição
+          </Button>
+        </DialogActions>  
       </Grid>
     </div>
   );

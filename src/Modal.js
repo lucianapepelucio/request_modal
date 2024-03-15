@@ -159,7 +159,7 @@ const CustomizedDialogs = withStyles(styles)(({ classes }) => {
           <Grid item lg={12}>
             <Divider />
           </Grid>
-          <Grid item lg={12}>
+          <Grid container direction="column">
             {isForcing ? <ForceContent onClose={handleClose}/> : <EditContent onClose={handleClose}/>}
           </Grid>
         </Dialog>
