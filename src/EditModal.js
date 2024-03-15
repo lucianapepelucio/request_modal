@@ -7,51 +7,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import PersonIcon from "@material-ui/icons/Person";
-
-const styles = () => ({
-  editContent: {
-    display: "flex",
-    alignItems: "center",
-    padding: "40px 24px",
-  },
-  avatar: {
-    width: "56px",
-    height: "56px",
-    float: "left",
-    background: "#bdbdbd",
-    marginRight: 16,
-  },
-  editText: {
-    fontWeight: 400,
-    fontSize: 16,
-    width: 440,
-    height: 72,
-  },
-  editActions: {
-    display: "flex",
-    alignItems: "flex-end",
-    width: 544,  
-    height: 36,  
-    gap: 14, 
-    padding: "16px 16px 16px 0px",
-  },
-  cancelButton: {
-    width: 107,
-    height: 36,
-    borderRadius: 4,
-    fontWeight: "bold",
-  },
-  requestButton: {
-    width: 160,
-    height: 36,
-    padding: 0,
-    marginLeft: 0, // ver porque aparece margin 8?
-    fontSize: 14,
-    lineHeight: "24px",
-    letterSpacing: 0.4,
-    fontWeight: "bold",
-  },
-});
+import styles from "./styles";
 
 const EditContent = withStyles(styles)(({ onClose, classes }) => {
  
@@ -67,7 +23,7 @@ const EditContent = withStyles(styles)(({ onClose, classes }) => {
   return (
     <div>
       <Grid container>
-        <Grid container direction="row" className={classes.editContent}>
+        <Grid container direction="row" className={classes.containerContent}>
           <DialogContent>
             <Grid item lg={12} className={classes.avatar}>
               <IconButton>
@@ -76,7 +32,7 @@ const EditContent = withStyles(styles)(({ onClose, classes }) => {
             </Grid>
             <Typography>
               <Grid item lg={12}>
-                <div className={classes.editText}>
+                <div className={classes.contentText}>
                   <strong>(Nome do solicitante)</strong>, você está solicitando a
                   edição para <strong>(nome do editor)</strong>
                   <i>((email do editor))</i>. Pode levar algum tempo até sua
@@ -87,7 +43,7 @@ const EditContent = withStyles(styles)(({ onClose, classes }) => {
           </DialogContent>
         </Grid>
         <Grid item lg={12}>
-          <DialogActions className={classes.editActions}>
+          <DialogActions className={classes.containerActions}>
             <Button
             variant="outlined" 
             color="default"
@@ -100,7 +56,7 @@ const EditContent = withStyles(styles)(({ onClose, classes }) => {
               variant="contained"
               color="primary"
               onClick={handleRequestEdit}
-              className={classes.requestButton}
+              className={classes.principalButton}
               >
               Solicitar edição
             </Button>
