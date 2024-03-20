@@ -2,9 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
 import Button from "@material-ui/core/Button";
-import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
-import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import PersonIcon from "@material-ui/icons/Person";
 import styles from "./styles";
@@ -21,25 +19,29 @@ const EditContent = withStyles(styles)(({ onClose, classes }) => {
   }
 
   return (
-    <div>
-      <Grid container direction="row" className={classes.containerContent}>
-        <DialogContent>
-          <Grid item lg={12} className={classes.avatar}>
-            <IconButton>
+    <Grid container>
+      <Grid item lg={12} direction="row">
+        <Grid container 
+          className={classes.containerContent} 
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Grid item lg={2} className={classes.avatar}>
+            <div>
               <PersonIcon />
-            </IconButton>
+            </div>
           </Grid>
-          <Typography>
-            <Grid item lg={12}>
-              <div className={classes.contentText}>
+          <Grid item lg={10} className={classes.contentText}>
+            <Typography>
+              <div>
                 <strong>(Nome do solicitante)</strong>, você está solicitando a
                 edição para <strong>(nome do editor)</strong>
                 <i>((email do editor))</i>. Pode levar algum tempo até sua
                 solicitação ser aceita.
               </div>
-            </Grid>
-          </Typography>
-        </DialogContent>
+            </Typography>
+          </Grid>
+        </Grid>
       </Grid>
       <Grid container direction="row">
         <DialogActions className={classes.containerActions}>
@@ -61,7 +63,7 @@ const EditContent = withStyles(styles)(({ onClose, classes }) => {
           </Button>
         </DialogActions>  
       </Grid>
-    </div>
+    </Grid>
   );
 });
 

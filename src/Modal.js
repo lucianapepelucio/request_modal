@@ -137,7 +137,7 @@ const CustomizedDialogs = withStyles(styles)(({ classes }) => {
       <Button variant="contained" color="primary" onClick={handleClickOpen}>
         Solicitar edição (cabeçograma)
       </Button>
-      <Grid container direction="column">
+      <Grid container>
         <Dialog
           open={open}
           onClose={handleClose}
@@ -159,7 +159,7 @@ const CustomizedDialogs = withStyles(styles)(({ classes }) => {
           <Grid item lg={12}>
             <Divider />
           </Grid>
-          <Grid container direction="column">
+          <Grid item lg={12}>
             {isForcing ? <ForceContent onClose={handleClose}/> : <EditContent onClose={handleClose}/>}
           </Grid>
         </Dialog>
