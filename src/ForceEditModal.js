@@ -4,7 +4,6 @@ import Grid from '@material-ui/core/Grid';
 import Button from "@material-ui/core/Button";
 import DialogActions from "@material-ui/core/DialogActions";
 import Typography from "@material-ui/core/Typography";
-import PersonIcon from "@material-ui/icons/Person";
 import styles from "./styles";
 
 const ForceContent = withStyles(styles)(({ onClose, classes }) => {
@@ -25,15 +24,15 @@ const ForceContent = withStyles(styles)(({ onClose, classes }) => {
          justifyContent="center"
          alignItems="center"
         >
-          <Grid item lg={2} className={classes.avatar}>
+          <Grid item lg={3} className={classes.avatar}>
             <div>
-              <PersonIcon />
+              <img alt=""/>
             </div>
           </Grid>
-          <Grid item lg={10} className={classes.contentText}>
+          <Grid item lg={9} className={classes.contentText}>
             <Typography>
               <div>
-                <strong>Atenção! </strong>
+                <strong>Atenção!</strong><br/>
                 É recomendado solicitar a edição da matéria e aguardar. 
                 Somente force a edição em <strong>situações necessárias.</strong>
               </div>

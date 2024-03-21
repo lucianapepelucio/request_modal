@@ -4,14 +4,12 @@ import Grid from '@material-ui/core/Grid';
 import Button from "@material-ui/core/Button";
 import DialogActions from "@material-ui/core/DialogActions";
 import Typography from "@material-ui/core/Typography";
-import PersonIcon from "@material-ui/icons/Person";
 import styles from "./styles";
 
 const EditContent = withStyles(styles)(({ onClose, classes }) => {
  
   const handleRequestEdit = () => {
     // adicionar a lógica para solicitar a edição
-    // ver como funciona no Multicontent
   };
 
   const handleCloseEditModal = () => {
@@ -26,17 +24,17 @@ const EditContent = withStyles(styles)(({ onClose, classes }) => {
           justifyContent="center"
           alignItems="center"
         >
-          <Grid item lg={2} className={classes.avatar}>
+          <Grid item lg={3} className={classes.avatar}>
             <div>
-              <PersonIcon />
+              <img alt=""/>
             </div>
           </Grid>
-          <Grid item lg={10} className={classes.contentText}>
+          <Grid item lg={9} className={classes.contentText}>
             <Typography>
               <div>
-                <strong>(Nome do solicitante)</strong>, você está solicitando a
-                edição para <strong>(nome do editor)</strong>
-                <i>((email do editor))</i>. Pode levar algum tempo até sua
+                <strong>Nome do solicitante</strong>, você está solicitando a
+                edição para <strong>nome do editor</strong>
+                <i>(email do editor)</i>. Pode levar algum tempo até sua
                 solicitação ser aceita.
               </div>
             </Typography>
