@@ -1,46 +1,88 @@
-const styles = ({
-    // containerContent: {
-    //   display: "flex",
-    //   alignItems: "center",
-    //   padding: "40px 24px",
-    //   width: "100%",
-    // },
-    // avatar: {
-    //   float: "left",
-    //   background: "#bdbdbd",
-    // },
-    // contentText: {
-    //   fontWeight: 400,
-    //   fontSize: 16,
-    //   width: 440,
-    //   height: 72,
-    // },
-    // containerActions: {
-    //   display: "flex",
-    //   alignItems: "flex-end",
-    //   width: 544,  
-    //   height: 36,  
-    //   gap: 14, 
-    //   padding: "16px 16px 16px 0px",
-    // },
-    cancelButton: {
-      width: 107,
-      height: 36,
-      borderRadius: 4,
-      fontWeight: "bold",
-    },
-    principalButton: {
-      width: 160,
-      height: 36,
-      //borderRadius: 4,
-      //padding: "6px 16px",
-      //gap: "6px",
-      marginLeft: 0,
-      fontSize: 14,
-      lineHeight: "24px",
-      letterSpacing: 0.4,
-      fontWeight: "bold",
-    },
-  });
+const styles = (theme) => ({
+  dialog: {
+    display: "grid",
+    gridTemplateColumns: "repeat(3, 1fr)",
+    borderRadius: "6px",
+    border: "1px solid #E0E0E0",
+  },
+  dialogTitle: {
+    position: "relative",
+    padding: 24,
+  },
+  titleText: {
+    width: 166,
+    height: 28,
+    fontWeight: "bold",
+    fontSize: 20,
+    lineHeight: "28px",
+    color: "#212121",
+  },
+  moreButton: {
+    position: "absolute",
+    right: theme.spacing(2),
+    top: theme.spacing(2),
+    color: theme.palette.grey[600],
+  },
+  list: {
+    width: 131.21,
+    height: 48,
+    borderRadius: 4,
+    listStyleType: "none",
+    padding: 0, 
+  },
+  forceButton: {
+    width: 131.21,
+    height: 48,
+    borderRadius: 4,
+    border: 0,
+    padding: 0,
+    backgroundColor: "transparent",
+    variant: "outlined",
+    color: "default",
+    fontSize: 16,
+    fontWeight: "bold",
+    lineHeight: "24px",
+    letterSpacing: 0.15,
+  },
+  containerContent: {
+    display: "flex",
+    padding: "40px 24px",
+    width: "100%",
+  },
+  avatar: {
+    float: "left",
+  },
+  contentText: {
+    fontWeight: 400,
+    fontSize: 16,
+    width: 440,
+    height: 72,
+  },
+  containerActions: {
+    display: "flex",
+    width: 544,  
+    height: 36,  
+    gap: 14, 
+    padding: "16px 16px 16px 0px",
+  },
+  cancelButton: {
+    width: 107,
+    height: 36,
+    borderRadius: 4,
+    fontWeight: "bold",
+  },
+  principalButton: {
+    width: 160,
+    height: 36,
+    borderRadius: 4,
+    padding: "6px 16px",
+    gap: "6px",
+    marginLeft: 0,
+    fontSize: 14,
+    lineHeight: "24px",
+    letterSpacing: 0.4,
+    fontWeight: "bold",
+  },
+});
 
-  export default styles;
+export default styles;

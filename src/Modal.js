@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import EditContent from "./EditModal";
 import ForceContent from "./ForceEditModal";
+import styles from "./styles";
 import { withStyles } from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
 import Button from "@material-ui/core/Button";
@@ -13,56 +14,6 @@ import Divider from "@material-ui/core/Divider";
 // import Snackbar from "@material-ui/core/Snackbar";
 // import MuiAlert from "@material-ui/lab/Alert";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-
-const styles = (theme) => ({
-  dialog: {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
-    alignItems: "center",
-    borderRadius: 6,
-    border: 1,
-  },
-  dialogTitle: {
-    position: "relative",
-    justifyContent: "space-between",
-    padding: 24,
-  },
-  titleText: {
-    width: 166,
-    height: 28,
-    fontWeight: "bold",
-    fontSize: 20,
-    lineHeight: "28px",
-    color: "#212121",
-},
-  moreButton: {
-    position: "absolute",
-    right: theme.spacing(2),
-    top: theme.spacing(2),
-    color: theme.palette.grey[600],
-  },
-  list: {
-    width: 131.21,
-    height: 48,
-    borderRadius: 4,
-    listStyleType: "none",
-    padding: 0, 
-  },
-  forceButton: {
-    width: 131.21,
-    height: 48,
-    borderRadius: 4,
-    border: 0,
-    padding: 0,
-    backgroundColor: "transparent",
-    variant: "outlined",
-    color: "default",
-    fontSize: 16,
-    fontWeight: "bold",
-    lineHeight: "24px",
-    letterSpacing: 0.15,
-  },
-});
 
 const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, isForcing, onStartForce, ...other } = props;
@@ -137,14 +88,14 @@ const CustomizedDialogs = withStyles(styles)(({ classes }) => {
       <Button variant="contained" color="primary" onClick={handleClickOpen}>
         Solicitar edição (cabeçograma)
       </Button>
-      <Grid container>
+      <Grid container alignItems="center">
         <Dialog
           open={open}
           onClose={handleClose}
           className={classes.dialog}
           aria-labelledby="customized-dialog-title"
         >
-          <Grid item lg={12}>
+          <Grid item lg={12} justifyContent="space-between">
             <DialogTitle 
             onStartForce= {() => setIsForcing(true)}
             isForcing={isForcing}

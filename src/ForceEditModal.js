@@ -41,7 +41,7 @@ const ForceContent = withStyles(styles)(({ onClose, classes }) => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid container direction="row">
+      <Grid container direction="row" alignItems="end">
         <DialogActions className={classes.containerActions}>
           <Button
           variant="outlined" 
