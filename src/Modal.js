@@ -11,8 +11,6 @@ import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
-// import Snackbar from "@material-ui/core/Snackbar";
-// import MuiAlert from "@material-ui/lab/Alert";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const DialogTitle = withStyles(styles)((props) => {
@@ -62,14 +60,9 @@ const DialogTitle = withStyles(styles)((props) => {
   );
 });
 
-// function Alert(props) {
-//   return <MuiAlert elevation={6} variant="filled" {...props} />;
-// }
-
 const CustomizedDialogs = withStyles(styles)(({ classes }) => {
   const [open, setOpen] = useState(false);
   const [isForcing, setIsForcing] = useState(false);
-  //const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -78,10 +71,6 @@ const CustomizedDialogs = withStyles(styles)(({ classes }) => {
   const handleClose = () => {
     setOpen(false);
   };
-
-  // const handleSnackbarClose = () => {
-  //   setSnackbarOpen(false);
-  // };
 
   return (
     <div>
@@ -115,16 +104,6 @@ const CustomizedDialogs = withStyles(styles)(({ classes }) => {
           </Grid>
         </Dialog>
       </Grid>
-
-      {/* <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={3000}
-        onClose={handleSnackbarClose}
-      >
-        <Alert onClose={handleSnackbarClose} severity="info">
-          Solicitação de edição enviada. Aguarde a resposta!
-        </Alert>
-      </Snackbar> */}
 
     </div>
   );
