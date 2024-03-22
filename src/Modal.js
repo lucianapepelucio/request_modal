@@ -24,7 +24,7 @@ const DialogTitle = withStyles(styles)((props) => {
   }
 
   return (
-    <Grid item lg={12}>
+    <Grid item xl={12}>
       <MuiDialogTitle disableTypography className={classes.dialogTitle} {...other}>
       <Typography variant="h6">{children}</Typography>
         {!isForcing && (
@@ -95,7 +95,7 @@ const CustomizedDialogs = withStyles(styles)(({ classes }) => {
           className={classes.dialog}
           aria-labelledby="customized-dialog-title"
         >
-          <Grid item lg={12} justifyContent="space-between">
+          <Grid item xl={12} justifyContent="space-between">
             <DialogTitle 
             onStartForce= {() => setIsForcing(true)}
             isForcing={isForcing}
@@ -107,10 +107,10 @@ const CustomizedDialogs = withStyles(styles)(({ classes }) => {
               }
             </DialogTitle>
           </Grid>
-          <Grid item lg={12}>
+          <Grid item xl={12}>
             <Divider />
           </Grid>
-          <Grid item lg={12}>
+          <Grid item xl={12}>
             {isForcing ? <ForceContent onClose={handleClose}/> : <EditContent onClose={handleClose}/>}
           </Grid>
         </Dialog>

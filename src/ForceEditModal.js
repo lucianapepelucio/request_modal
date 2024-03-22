@@ -18,18 +18,18 @@ const ForceContent = withStyles(styles)(({ onClose, classes }) => {
 
   return (
     <Grid container>
-      <Grid item lg={12} direction="row">
+      <Grid item xl={12} direction="row">
         <Grid container
          className={classes.containerContent}
          justifyContent="center"
          alignItems="center"
         >
-          <Grid item lg={3} className={classes.avatar}>
+          <Grid item xl={3} className={classes.avatar}>
             <div>
               <img alt=""/>
             </div>
           </Grid>
-          <Grid item lg={9} className={classes.contentText}>
+          <Grid item xl={9} className={classes.contentText}>
             <Typography>
               <div>
                 <strong>Atenção!</strong><br/>
