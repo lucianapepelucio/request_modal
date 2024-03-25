@@ -1,46 +1,4 @@
-const styles = (theme) => ({
-  dialog: {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
-    borderRadius: "6px",
-    border: "1px solid #E0E0E0",
-  },
-  dialogTitle: {
-    position: "relative",
-    padding: 24,
-  },
-  titleText: {
-    width: 166,
-    height: 28,
-    fontWeight: "bold",
-    fontSize: 20,
-    lineHeight: "28px",
-    color: "#212121",
-  },
-  moreButton: {
-    position: "absolute",
-    right: theme.spacing(2),
-    top: theme.spacing(2),
-    color: theme.palette.grey[600],
-  },
-  list: {
-    display: "block",
-    borderRadius: 4,
-    listStyleType: "none",
-    padding: 0, 
-  },
-  forceButton: {
-    width: "100%",
-    borderRadius: 4,
-    border: 0,
-    backgroundColor: "transparent",
-    variant: "outlined",
-    color: "default",
-    fontSize: 16,
-    fontWeight: "bold",
-    lineHeight: "24px",
-    letterSpacing: 0.15,
-  },
+const styles = () => ({
   containerContent: {
     display: "flex",
     padding: "40px 24px",
