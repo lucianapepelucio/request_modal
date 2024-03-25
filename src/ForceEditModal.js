@@ -17,8 +17,8 @@ const ForceContent = withStyles(styles)(({ onClose, classes }) => {
   }
 
   return (
-    <Grid container>
-      <Grid item xl={12} direction="row">
+    <Grid container direction="row">
+      <Grid item xl={12}>
         <Grid container
          className={classes.containerContent}
          justifyContent="center"
@@ -40,7 +40,7 @@ const ForceContent = withStyles(styles)(({ onClose, classes }) => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid container direction="row" alignItems="end">
+      <Grid container direction="row" alignItems="flex-end">
         <DialogActions className={classes.containerActions}>
           <Button
           variant="outlined" 

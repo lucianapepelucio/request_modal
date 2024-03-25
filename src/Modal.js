@@ -77,14 +77,14 @@ const CustomizedDialogs = withStyles(styles)(({ classes }) => {
       <Button variant="contained" color="primary" onClick={handleClickOpen}>
         Solicitar edição (cabeçograma)
       </Button>
-      <Grid container alignItems="center">
+      <Grid container alignItems="center" justifyContent="space-between">
         <Dialog
           open={open}
           onClose={handleClose}
           className={classes.dialog}
           aria-labelledby="customized-dialog-title"
         >
-          <Grid item xl={12} justifyContent="space-between">
+          <Grid item xl={12}>
             <DialogTitle 
             onStartForce= {() => setIsForcing(true)}
             isForcing={isForcing}
