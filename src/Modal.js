@@ -54,6 +54,7 @@ const styles = theme => ({
     fontWeight: "bold",
     lineHeight: "24px",
     letterSpacing: 0.15,
+    cursor: "pointer",
   },
 });
 
